@@ -81,17 +81,21 @@ function additional_theme_styles()
   // Register the style like this for a theme:  
   // (First the unique name for the style (custom-style) then the src, 
   // then dependencies and ver no. and media type)
+
+  wp_register_style( 'bootstrap', CHILD_TEMPLATE_URL . '/assets/css/bootstrap.css');
+  wp_register_style( 'bootstrap-responsive', CHILD_TEMPLATE_URL . '/assets/css/responsive.css');
   wp_register_style( 'screen', CHILD_TEMPLATE_URL . '/assets/css/screen.css', array('bootstrap'));
   wp_register_style( 'print', CHILD_TEMPLATE_URL . '/assets/css/print.css', array('bootstrap'));
   wp_register_style( 'ie', CHILD_TEMPLATE_URL . '/assets/css/ie.css', array('bootstrap'));
 
   // enqueing:
+  wp_enqueue_style( 'bootstrap' );
+  wp_enqueue_style( 'bootstrap-responsive' );
   wp_enqueue_style( 'screen' );
   wp_enqueue_style( 'print' );
   wp_enqueue_style( 'ie' );
 }
 add_action('wp_enqueue_scripts', 'additional_theme_styles');
-
 
 
 

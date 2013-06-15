@@ -188,13 +188,9 @@ function theme_styles()
   // (First the unique name for the style (custom-style) then the src, 
   // then dependencies and ver no. and media type)
   wp_register_style( 'base', get_template_directory_uri() . '/assets/css/base.css');
-  wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css');
-  wp_register_style( 'bootstrap-responsive', get_template_directory_uri() . '/assets/css/responsive.css');
 
   // enqueing:
   wp_enqueue_style( 'base' );
-  wp_enqueue_style( 'bootstrap' );
-  wp_enqueue_style( 'bootstrap-responsive' );
 }
 add_action('wp_enqueue_scripts', 'theme_styles');
 
