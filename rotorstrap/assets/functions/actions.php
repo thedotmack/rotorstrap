@@ -187,9 +187,9 @@ function theme_styles()
   // Register the style like this for a theme:  
   // (First the unique name for the style (custom-style) then the src, 
   // then dependencies and ver no. and media type)
-  wp_register_style( 'base', get_template_directory_uri() . '/assets/styles/base.css');
-  wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/styles/bootstrap.min.css');
-  wp_register_style( 'bootstrap-responsive', get_template_directory_uri() . '/assets/styles/bootstrap-responsive.min.css');
+  wp_register_style( 'base', get_template_directory_uri() . '/assets/css/base.css');
+  wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css');
+  wp_register_style( 'bootstrap-responsive', get_template_directory_uri() . '/assets/css/responsive.css');
 
   // enqueing:
   wp_enqueue_style( 'base' );
@@ -465,7 +465,7 @@ add_action('admin_enqueue_scripts', 'rw_admin_enqueue_scripts');
  */
 function rw_admin_init(  )
 {
-    wp_register_style('rotorwash_admin_styles', get_template_directory_uri() . '/assets/styles/admin.css');
+    wp_register_style('rotorwash_admin_styles', get_template_directory_uri() . '/assets/css/admin.css');
 }
 add_action('admin_init', 'rw_admin_init');
 
