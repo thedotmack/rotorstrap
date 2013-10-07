@@ -23,26 +23,26 @@
 //  Define Custom Post Types here...
 /*  ********************************
 
-    Define as many of these as you want
-    within the cpt_init() function.
+		Define as many of these as you want
+		within the cpt_init() function.
 
-    $custom_post_types[] = array(
-        'singular'  =>  'Hipster Chick', 
-        'plural'    =>  'Hipster Chicks',
-        'supports'  =>  array(
-                            'title',
-                            'editor',
-                            'author',
-                            'thumbnail',
-                            'excerpt',
-                            'trackbacks',
-                            'custom-fields',
-                            'comments',
-                            'revisions',
-                            'page-attributes',
-                            'post-formats',
-                        )
-    );
+		$custom_post_types[] = array(
+				'singular'  =>  'Hipster Chick', 
+				'plural'    =>  'Hipster Chicks',
+				'supports'  =>  array(
+														'title',
+														'editor',
+														'author',
+														'thumbnail',
+														'excerpt',
+														'trackbacks',
+														'custom-fields',
+														'comments',
+														'revisions',
+														'page-attributes',
+														'post-formats',
+												)
+		);
 */
 // function cpt_init() {
 //     $custom_post_types[] = array(
@@ -58,38 +58,38 @@
 //  Load Additional Scripts
 /*  ***********************
 
-    wp_enqueue_script(
-        'script_name',
-        CHILD_TEMPLATE_URL . '/js/scriptname.js',
-        array('jquery') // (Optional Attribute, include if script depends on jQuery) 
+		wp_enqueue_script(
+				'script_name',
+				CHILD_TEMPLATE_URL . '/js/scriptname.js',
+				array('jquery') // (Optional Attribute, include if script depends on jQuery) 
 */
 
 function additional_scripts() {
-    wp_enqueue_script(
-        'init',
-        CHILD_TEMPLATE_URL . '/js/init.js',
-        array('jquery')
-    );
+		wp_enqueue_script(
+				'init',
+				CHILD_TEMPLATE_URL . '/js/init.js',
+				array('jquery')
+		);
 }
 add_action('wp_enqueue_scripts', 'additional_scripts');
 
 
 
-
 function additional_theme_styles()  
 { 
-  // Register the style like this for a theme:  
-  // (First the unique name for the style (custom-style) then the src, 
-  // then dependencies and ver no. and media type)
+	// Register the style like this for a theme:  
+	// (First the unique name for the style (custom-style) then the src, 
+	// then dependencies and ver no. and media type)
 
-  wp_register_style( 'screen',  CHILD_TEMPLATE_URL . '/assets/css/screen.css' );
-  wp_register_style( 'print',   CHILD_TEMPLATE_URL . '/assets/css/print.css'  );
-  wp_register_style( 'ie',      CHILD_TEMPLATE_URL . '/assets/css/ie.css'     );
+	wp_register_style( 'screen',  CHILD_TEMPLATE_URL . '/assets/css/screen.css'  );
+	wp_register_style( 'lte-ie8', CHILD_TEMPLATE_URL . '/assets/css/lte-ie8.css' );
 
-  // enqueing:
-  wp_enqueue_style( 'screen' );
-  wp_enqueue_style( 'print' );
-  wp_enqueue_style( 'ie' );
+	global $wp_styles;
+	$wp_styles->add_data('lte-ie8', 'conditional', 'lte IE 8');
+
+	// enqueing:
+	wp_enqueue_style( 'screen' );
+	wp_enqueue_style( 'lte-ie8' );
 }
 add_action('wp_enqueue_scripts', 'additional_theme_styles');
 
