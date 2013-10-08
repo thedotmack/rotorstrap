@@ -88,7 +88,7 @@ function additional_theme_styles()
 	$wp_styles->add_data('lte-ie8', 'conditional', 'lte IE 8');
 
 	// enqueing:
-	wp_enqueue_style( 'screen' );
+	wp_enqueue_style( 'screen'  );
 	wp_enqueue_style( 'lte-ie8' );
 }
 add_action('wp_enqueue_scripts', 'additional_theme_styles');
